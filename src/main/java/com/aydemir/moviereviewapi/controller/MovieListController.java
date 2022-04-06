@@ -5,6 +5,9 @@ import com.aydemir.moviereviewapi.model.MovieList;
 import com.aydemir.moviereviewapi.service.MovieListService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("api/v1/movie-list")
 public class MovieListController {
@@ -28,30 +31,34 @@ public class MovieListController {
     }
     //get movie list info
     @GetMapping("/list/{listId}")
-    public MovieList getMovieList(@PathVariable Long listId) {
+    public Optional<MovieList> getMovieList(@PathVariable Long listId) {
         return movieListService.getMovieList(listId);
     }
     //update movie list name
     @PutMapping("/list/update-name/{listId}/{listName}")
-    public MovieList updateListName(@PathVariable Long listId, @PathVariable String listName) {
+    public Optional<MovieList> updateListName(@PathVariable Long listId, @PathVariable String listName) {
         return movieListService.updateListName(listId,listName);
     }
 
-    //update movie list to public
-    @PutMapping("/list/set-private/{listId}")
-    public MovieList setListToPrivate(@PathVariable Long listId) {
-        return movieListService.setListToPrivate(listId);
+    @PutMapping("/list/update-description/{listId}/{listName}")
+    public Optional<MovieList> updateListDescription(@PathVariable Long listId, @PathVariable String description) {
+        return movieListService.updateListDescription(listId,description);
     }
 
-    //update movie list to private
-    @PutMapping("/list/set-public/{listId}")
-    public MovieList setListToPublic(@PathVariable Long listId) {
-        return movieListService.setListToPublic(listId);
+    //update movie list to public
+    @PutMapping("/list/set-publicity/{listId}")
+    public Optional<MovieList> setListPrivacy(@PathVariable Long listId, @RequestParam boolean isPublic) {
+        return movieListService.setListPrivacy(listId,isPublic);
     }
-    //remove movie from movie list
+
     @PutMapping("/list/remove-movie/{listId}/{movieId}")
     public MovieList removeMovieFromList(@PathVariable Long listId, @PathVariable Long movieId) {
         return movieListService.removeMovieFromList(listId,movieId);
+    }
+
+    @GetMapping("list/search-list/{search}")
+    public List<MovieList> searchMovieLists(@PathVariable String search) {
+        return movieListService.searchList(search);
     }
 
     //delete movie list

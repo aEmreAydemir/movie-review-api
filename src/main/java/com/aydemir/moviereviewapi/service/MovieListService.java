@@ -5,6 +5,9 @@ import com.aydemir.moviereviewapi.model.MovieList;
 import com.aydemir.moviereviewapi.repository.ListRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class MovieListService {
 
@@ -19,31 +22,42 @@ public class MovieListService {
     }
 
     public MovieList addMovieToList(Long listId, Long movieId) {
-        return null;
+        MovieList movieList = listRepository.findById(listId).get();
+        movieList.getMovies().add(movieId);
+        return listRepository.save(movieList);
     }
 
-    public MovieList getMovieList(Long listId) {
-        return null;
-
+    public Optional<MovieList> getMovieList(Long listId) {
+        return listRepository.findById(listId);
     }
 
-    public MovieList updateListName(Long listId, String listName) {
-        return null;
+    public Optional<MovieList> updateListName(Long listId, String listName) {
+        listRepository.updateListName(listId,listName);
+        return listRepository.findById(listId);
     }
 
-    public MovieList setListToPrivate(Long listId) {
-        return null;
+    public Optional<MovieList> updateListDescription(Long listId, String description) {
+        listRepository.updateListDescription(listId,description);
+        return listRepository.findById(listId);
     }
 
-    public MovieList setListToPublic(Long listId) {
-        return null;
+    public Optional<MovieList> setListPrivacy(Long listId, boolean isPublic) {
+        listRepository.updateListPublicity(listId,isPublic);
+        return listRepository.findById(listId);
     }
 
     public MovieList removeMovieFromList(Long listId, Long movieId) {
-        return null;
+        MovieList movieList = listRepository.findById(listId).get();
+        movieList.getMovies().remove(movieId);
+        return listRepository.save(movieList);
+    }
+
+    public List<MovieList> searchList(String searchParameter) {
+        return listRepository.findByListNameContainingOrderByListNameAsc(searchParameter);
     }
 
     public void deleteList(Long listId) {
+        listRepository.deleteById(listId);
     }
 
     public WatchlistDTO addToWatchlist(Long userId, Long movieId) {

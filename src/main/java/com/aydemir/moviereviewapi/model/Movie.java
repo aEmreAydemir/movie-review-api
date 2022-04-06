@@ -20,6 +20,8 @@ public class Movie {
     @NotNull
     private String movieName;
 
+    @Nullable
+    private String description;
    /* @Nullable
     @ElementCollection
     private List<String> tags; */

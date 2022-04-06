@@ -24,6 +24,9 @@ public class MovieList {
     private String listName;
 
     @NotNull
+    private String description;
+
+    @NotNull
     private boolean isPublic = false;
 
 //  @ElementCollection(targetClass=Long.class)

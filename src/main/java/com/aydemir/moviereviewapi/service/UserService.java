@@ -1,5 +1,6 @@
 package com.aydemir.moviereviewapi.service;
 
+import com.aydemir.moviereviewapi.exception.UserExistsException;
 import com.aydemir.moviereviewapi.model.MovieList;
 import com.aydemir.moviereviewapi.model.User;
 import com.aydemir.moviereviewapi.repository.ListRepository;
@@ -21,6 +22,11 @@ public class UserService {
     }
 
     public User saveUser(User user) {
+        User existingUser = userRepository.getById(user.getUserId());
+
+        if (existingUser != null)
+            throw new UserExistsException();
+
         return userRepository.save(user);
     }
 
