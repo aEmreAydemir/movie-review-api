@@ -5,30 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67e606e9-ca5b-4b12-af58-2b02e700ce3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/exception/ApiException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/exception/UserExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/mapper/MovieListMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/exception/ListNameExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/exception/ListNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/exception/MovieExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/exception/MovieNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/WatchlistRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/controller/MovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/controller/MovieListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/controller/MovieListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/model/MovieList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/model/MovieList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/model/Watchlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/model/Watchlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/ListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/ListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/service/MovieListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/service/MovieListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/service/MovieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/util/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/controller/MovieListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/controller/MovieListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/model/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/model/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/model/MovieList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/model/MovieList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/repository/ListRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/repository/ListRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/repository/MovieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/repository/MovieRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/service/MovieListService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/service/MovieListService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/aydemir/moviereviewapi/service/MovieService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +31,25 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/service/UserReviewService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/exception/UserExistsException.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/MovieRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/service/UserService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/UserRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/UserReviewRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/MovieActorRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/repository/ListRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/aydemir/moviereviewapi/util/Constants.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -56,9 +61,9 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>

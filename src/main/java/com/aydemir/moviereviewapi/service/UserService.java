@@ -1,6 +1,7 @@
 package com.aydemir.moviereviewapi.service;
 
 import com.aydemir.moviereviewapi.exception.UserExistsException;
+import com.aydemir.moviereviewapi.exception.UserNotFoundException;
 import com.aydemir.moviereviewapi.model.MovieList;
 import com.aydemir.moviereviewapi.model.User;
 import com.aydemir.moviereviewapi.repository.ListRepository;
@@ -22,7 +23,12 @@ public class UserService {
     }
 
     public User saveUser(User user) {
-        User existingUser = userRepository.getById(user.getUserId());
+        User existingUser = userRepository.findByUserName(user.getUserName());
+
+        if (existingUser != null)
+            throw new UserExistsException();
+
+        existingUser = userRepository.findByEmail(user.getEmail());
 
         if (existingUser != null)
             throw new UserExistsException();
@@ -31,7 +37,7 @@ public class UserService {
     }
 
     public User getUserById(Long userId) {
-        return userRepository.getById(userId);
+        return userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
     }
 
     //todo user updates

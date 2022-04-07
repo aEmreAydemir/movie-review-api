@@ -23,7 +23,7 @@ public class MovieController {
     }
 
     @GetMapping("/{movieId}")
-    public Optional<Movie> getMovie(@PathVariable Long movieId) {
+    public Movie getMovie(@PathVariable Long movieId) {
         return movieService.getMovieById(movieId);
     }
 

@@ -35,9 +35,9 @@ public class MovieListController {
         return movieListService.getMovieList(listId);
     }
     //update movie list name
-    @PutMapping("/list/update-name/{listId}/{listName}")
-    public Optional<MovieList> updateListName(@PathVariable Long listId, @PathVariable String listName) {
-        return movieListService.updateListName(listId,listName);
+    @PutMapping("/list/{listId}/{ownerId}/{listName}/update-name/")
+    public Optional<MovieList> updateListName(@PathVariable Long listId,@PathVariable Long ownerId, @PathVariable String listName) {
+        return movieListService.updateListName(listId,ownerId,listName);
     }
 
     @PutMapping("/list/update-description/{listId}/{listName}")

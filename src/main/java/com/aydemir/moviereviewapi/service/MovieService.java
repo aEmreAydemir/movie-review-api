@@ -1,5 +1,6 @@
 package com.aydemir.moviereviewapi.service;
 
+import com.aydemir.moviereviewapi.exception.MovieNotFoundException;
 import com.aydemir.moviereviewapi.model.Movie;
 import com.aydemir.moviereviewapi.repository.MovieRepository;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,8 @@ public class MovieService {
         return movieRepository.findByTagOrderByMovieNameAsc(tag);
     }
 
-    public Optional<Movie> getMovieById(Long movieId) {
-        return movieRepository.findById(movieId);
+    public Movie getMovieById(Long movieId) {
+        return movieRepository.findById(movieId).orElseThrow(MovieNotFoundException::new);
     }
 
     public void deleteMovieById(Long movieId) {

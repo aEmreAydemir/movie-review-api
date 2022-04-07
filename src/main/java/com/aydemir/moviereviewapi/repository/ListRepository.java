@@ -29,4 +29,6 @@ public interface ListRepository extends JpaRepository<MovieList, Long> {
     void updateListPublicity(@Param("id") Long listId, @Param("isPublic") boolean isPublic);
 
     List<MovieList> findByListNameContainingOrderByListNameAsc(String listName);
+
+    List<MovieList> findAllByOwnerId(Long ownerId);
 }

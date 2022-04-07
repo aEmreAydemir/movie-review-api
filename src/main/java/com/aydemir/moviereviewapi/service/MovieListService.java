@@ -1,8 +1,13 @@
 package com.aydemir.moviereviewapi.service;
 
 import com.aydemir.moviereviewapi.dto.WatchlistDTO;
+import com.aydemir.moviereviewapi.exception.ListNameExistException;
+import com.aydemir.moviereviewapi.exception.ListNotFoundException;
+import com.aydemir.moviereviewapi.exception.MovieExistException;
 import com.aydemir.moviereviewapi.model.MovieList;
+import com.aydemir.moviereviewapi.model.Watchlist;
 import com.aydemir.moviereviewapi.repository.ListRepository;
+import com.aydemir.moviereviewapi.repository.WatchlistRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,12 +17,21 @@ import java.util.Optional;
 public class MovieListService {
 
     private final ListRepository listRepository;
+    private final WatchlistRepository watchlistRepository;
 
-    public MovieListService(ListRepository listRepository) {
+    public MovieListService(ListRepository listRepository, WatchlistRepository watchlistRepository) {
         this.listRepository = listRepository;
+        this.watchlistRepository = watchlistRepository;
     }
 
     public MovieList createList(MovieList movieList) {
+        List<MovieList> movieLists = listRepository.findAllByOwnerId(movieList.getOwnerId());
+
+        for (MovieList list : movieLists) {
+            if (list.getListName().equals(movieList.getListName()))
+                throw new ListNameExistException();
+        }
+
         return listRepository.save(movieList);
     }
 
@@ -31,7 +45,15 @@ public class MovieListService {
         return listRepository.findById(listId);
     }
 
-    public Optional<MovieList> updateListName(Long listId, String listName) {
+    public Optional<MovieList> updateListName(Long listId,Long ownerId, String listName) {
+
+        List<MovieList> movieLists = listRepository.findAllByOwnerId(ownerId);
+
+        for (MovieList list : movieLists) {
+            if (list.getListName().equals(listName))
+                throw new ListNameExistException();
+        }
+
         listRepository.updateListName(listId,listName);
         return listRepository.findById(listId);
     }
@@ -53,15 +75,34 @@ public class MovieListService {
     }
 
     public List<MovieList> searchList(String searchParameter) {
-        return listRepository.findByListNameContainingOrderByListNameAsc(searchParameter);
+
+        List<MovieList> list = listRepository.findByListNameContainingOrderByListNameAsc(searchParameter);
+
+        if (list.isEmpty())
+            throw new ListNotFoundException();
+
+        return list;
     }
 
     public void deleteList(Long listId) {
         listRepository.deleteById(listId);
     }
 
+    public void createWatchlist(Watchlist watchlist) {
+        watchlistRepository.save(watchlist);
+    }
+
     public WatchlistDTO addToWatchlist(Long userId, Long movieId) {
-        return null;
+        Watchlist watchlist = watchlistRepository.findById(userId).orElseThrow(); //add exception here
+
+       int index = watchlist.getMoviesToWatch().indexOf(movieId);
+
+        if (index != -1)
+            throw new MovieExistException();
+
+        watchlist.getMoviesToWatch().add(movieId);
+        watchlistRepository.save(watchlist);
+        return null; //todo
     }
 
     public WatchlistDTO getWatchlist(Long userId) {
